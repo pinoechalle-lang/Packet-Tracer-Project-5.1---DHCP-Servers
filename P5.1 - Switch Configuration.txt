@@ -1,0 +1,129 @@
+=========================================================================================
+Switch A:
+=========================================================================================
+
+=============[ Escalate Mode ]=============
+
+enable
+configure terminal
+
+=============[ Basic Configurations ]=============
+
+hostname Switch-A
+
+no ip domain-lookup
+
+
+=============[ Creating/Assigning VLANs to a Port ]=============
+
+interface f0/1
+ description VLAN 2
+ switchport mode access
+ switchport access vlan 2
+exit
+
+interface f0/2
+ description VLAN 3
+ switchport mode access
+ switchport access vlan 3
+exit
+
+
+=============[ Trunk Configuration ]=============
+
+interface g0/1
+ description Link to Router A (Trunk)
+ switchport mode trunk
+ switchport trunk allowed vlan 2,3,4,5,900
+exit
+
+
+=============[ Save Running Configuration (Global) ]=============
+
+do copy running-config startup-config
+
+
+
+=========================================================================================
+Switch B:
+=========================================================================================
+
+=============[ Escalate Mode ]=============
+
+enable 
+configure terminal
+
+
+=============[ Basic Configurations ]=============
+
+hostname Switch-B
+
+no ip domain-lookup
+
+
+=============[ Creating/Assigning VLANs to a Port ]=============
+
+interface f0/1
+ switchport mode access
+ switchport access vlan 4
+exit
+
+interface f0/2
+ switchport mode access
+ switchport access vlan 5
+exit
+
+
+=============[ Trunk Configuration ]=============
+
+interface g0/1
+ description Link to Router B (Trunk)
+ switchport mode trunk
+ switchport trunk allowed vlan 2,3,4,5,900
+exit
+
+
+=============[ Save Running Configuration (Global) ]=============
+
+do copy running-config startup-config
+
+
+
+=========================================================================================
+Switch C:
+=========================================================================================
+
+=============[ Escalate Mode ]=============
+
+enable
+configure terminal
+
+
+=============[ Basic Configurations ]=============
+
+hostname Switch-C
+
+no ip domain-lookup
+
+
+=============[ Creating/Assigning a VLAN to a Port ]=============
+
+interface f0/1
+ description VLAN 900 - DHCP Server
+ switchport mode access 
+ switchport access vlan 900
+exit
+
+
+=============[ Trunk Configuration ]=============
+
+interface g0/1
+ description Link to Router A
+ switchport mode trunk
+ switchport trunk allowed vlan 2,3,4,5,900
+exit
+
+
+=============[ Save Running Configuration (Global) ]=============
+
+do copy running-config startup-config
