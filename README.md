@@ -2,6 +2,8 @@
 
 # Project Requirements: Multi-Service Enterprise Network Implementation
 
+![Project 2 Screenshot](https://github.com/pinoechalle-lang/Packet-Tracer-Project-5.1---DHCP-Servers/blob/main/Screenshot%202026-10-24%20232450.png?raw=true)
+
 ## Requirement:
 You are a student task with designing and implementing a multi-department network infrastructure using Cisco Packet Tracer that demonstrates VLAN segmentation, Router-on-a-Stick inter-VLAN routing, DHCP deployment methods, DNS services, and static routing between separate network domains.
 
