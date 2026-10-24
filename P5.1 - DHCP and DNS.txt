@@ -1,0 +1,64 @@
+=========================================================================================
+DHCP Server
+=========================================================================================
+
+==========[ Configure DHCP Service ]==========
+
+> (1) Press on Server icon
+> (2) Go to "Services" tab
+> (3) Select on "DHCP"
+> (4) Select on "Service" = "On"
+
+
+==========[ serverPool (default) ]==========
+
+Start IP Address:          10 - 0 - 2 - 16
+Subnet Mask:               255 - 255 - 255- 248
+Maximum Number of Users:   <1-7>
+
+// Note: Everything is default here
+
+
+==========[ VLAN 2 ]==========
+
+Pool Name:                 VLAN 2
+Default Gateway:           192.168.2.254
+DNS Server:                172.19.20.1
+Start IP Address:          192 - 168 - 2 - 5
+Subnet Mask:               255 - 255 - 255 - 0
+Maximum Number of Users:   <1-253>
+
+> Press [Add]
+
+
+==========[ VLAN 3 ]==========
+
+Pool Name:                 VLAN 2
+Default Gateway:           192.168.3.254
+DNS Server:                172.19.20.1
+Start IP Address:          192 - 168 - 3 - 5
+Subnet Mask:               255 - 255 - 255 - 0
+Maximum Number of Users:   <1-253>
+
+> Press [Add]
+
+
+=========================================================================================
+DNS Server
+=========================================================================================
+
+==========[ Configure DNS Service ]==========
+
+> (1) Press on Server icon
+> (2) Go to "Services" tab
+> (3) Select on "DNS"
+> (4) Select on "DNS Service" = "On"
+
+
+==========[ companyrecords (domain) ]==========
+
+Name:      companyrecords.local
+Type:      A Record  
+Address:   172.19.20.1
+
+> Press [Add]
