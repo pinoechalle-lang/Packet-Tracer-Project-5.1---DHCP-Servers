@@ -5,7 +5,7 @@
 ![Project 2 Screenshot](https://github.com/pinoechalle-lang/Packet-Tracer-Project-5.1---DHCP-Servers/blob/main/Screenshot%202026-10-24%20232450.png?raw=true)
 
 ## Requirement:
-You are a student tasked with designing and implementing a multi-department network infrastructure using Cisco Packet Tracer that demonstrates VLAN segmentation, Router-on-a-Stick inter-VLAN routing, DHCP deployment methods, DNS services, and static routing between separate network domains. Department A relies on a DHCP server located outside the network for the IP addresses and Department B has Router B that provides the necessary IP addresses for the end devices in the department.
+You are a student tasked with designing and implementing a multi-department network infrastructure using Cisco Packet Tracer that demonstrates VLAN segmentation, Router-on-a-Stick inter-VLAN routing, DHCP services, DNS services, and static routing between routers. The project must be configured and verified using real networking principles and validation commands.
 
 ## Topology Requirements
 
@@ -94,6 +94,23 @@ All subnetworks must be reachable across routers.
 
 The following tests must be successfully completed:
 
+```bash
+show running-config | section dhcp
+show ip dhcp pool
+show ip dhcp binding
+show ip dhcp conflict
+show ip dhcp database
+
+debug ip dhcp server events
+debug ip dhcp server packets
+undebug all
+
+show running-config | section ip helper-address
+show ip interface brief
+show ip route
+show ip helper-address
+```
+
 ### DHCP Tests
 - VLAN 2 client receives address from DHCP Server.
 - VLAN 3 client receives address from DHCP Server.
@@ -112,4 +129,3 @@ The following tests must be successfully completed:
 - Clients obtain DNS server information from DHCP.
 - Hostnames resolve to IP addresses.
 - Clients can access a host using its domain name instead of its IP address.
-
