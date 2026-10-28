@@ -142,7 +142,7 @@ DHCP relay commands are usually entered on the router forwarding the client requ
 - `show ip route` — Checks the router has a valid route to the DHCP server subnet.
 - `show ip helper-address` — Displays the configured helper address(es), confirming the forwarding destination.
 
-#### 4) End Devices
+#### 3) End Devices
 - `ipconfig /all` - Displays all information about the device's IP address, the DHCP assigned address, the subnet mask, the default gateway, DNS, and MAC address of the device.
 - `ipconfig /release` - Releases the current DHCP lease.
 - `ipconfig /renew` - Requests a new IP address from the DHCP server.
