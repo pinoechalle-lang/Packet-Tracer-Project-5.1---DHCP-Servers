@@ -110,15 +110,21 @@ show ip interface brief
 show ip route
 show ip helper-address
 
-// For End Devices
+// Command Prompt on Windows (End Devices)
 ipconfig /all
 ipconfig /release
 ipconfig /renew
+ipconfig /flushdns
+nslookup <hostname>
+ping {<hostname> | <host_ip-address>} 
 ```
 
 ### DHCP Troubleshooting Command Reference
 
 #### 1) DHCP Server Router (Router B or dedicated DHCP server)
+DHCP server commands are usually entered on the router that is actually running DHCP, such as Router B, while the debug commands are used on the DHCP server router when you need to observe DHCP traffic live during a failure.
+
+
 - `show running-config | section dhcp` — Confirms the DHCP service and pool configuration on the server router.
 - `show ip dhcp pool` — Displays the DHCP pool details, including network, default gateway, DNS, and lease range.
 - `show ip dhcp binding` — Shows which clients have successfully received IP addresses.
@@ -129,15 +135,21 @@ ipconfig /renew
 - `undebug all` — Stops all active debug output after troubleshooting is complete.
 
 #### 2) DHCP Relay Router (Router A)
+DHCP relay commands are usually entered on the router forwarding the client requests, such as Router A.
+
 - `show running-config | section ip helper-address` — Confirms the router is configured to forward DHCP requests to the correct server.
 - `show ip interface brief` — Verifies the interfaces involved in DHCP relay are administratively up and operational.
 - `show ip route` — Checks the router has a valid route to the DHCP server subnet.
 - `show ip helper-address` — Displays the configured helper address(es), confirming the forwarding destination.
 
-#### 3) Where these are typically used
-- DHCP server commands are usually entered on the router that is actually running DHCP, such as Router B.
-- DHCP relay commands are usually entered on the router forwarding the client requests, such as Router A.
-- The debug commands are used on the DHCP server router when you need to observe DHCP traffic live during a failure.
+#### 4) End Devices
+- `ipconfig /all` - Displays all information about the device's IP address, the DHCP assigned address, the subnet mask, the default gateway, DNS, and MAC address of the device.
+- `ipconfig /release` - Releases the current DHCP lease.
+- `ipconfig /renew` - Requests a new IP address from the DHCP server.
+- `ipconfig /flushdns` - Clears the local DNS cache after lease renewal or DNS changes.
+- `nslookup <hostname>` - Tests name resolution from the DNS server or client. Use this to test if the DNS is working by using the command `nslookup [companyrecords.local]`, and you will know that it's working when it returns the IP address of the DNS server, which is *172.19.20.1*.
+- `ping {<hostname> | <host_ip-address>}` - Confirms the host can be reached by either name or IP. 
+
 
 ### DHCP Tests
 - VLAN 2 client receives address from DHCP Server.
