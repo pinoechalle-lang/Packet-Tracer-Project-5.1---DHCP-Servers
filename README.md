@@ -109,6 +109,11 @@ show running-config | section ip helper-address
 show ip interface brief
 show ip route
 show ip helper-address
+
+// For End Devices
+ipconfig /all
+ipconfig /release
+ipconfig /renew
 ```
 
 ### DHCP Troubleshooting Command Reference
