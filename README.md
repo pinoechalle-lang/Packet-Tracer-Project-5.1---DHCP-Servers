@@ -111,6 +111,29 @@ show ip route
 show ip helper-address
 ```
 
+### DHCP Troubleshooting Command Reference
+
+#### 1) DHCP Server Router (Router B or dedicated DHCP server)
+- `show running-config | section dhcp` — Confirms the DHCP service and pool configuration on the server router.
+- `show ip dhcp pool` — Displays the DHCP pool details, including network, default gateway, DNS, and lease range.
+- `show ip dhcp binding` — Shows which clients have successfully received IP addresses.
+- `show ip dhcp conflict` — Lists any detected duplicate or conflicting IP addresses assigned by DHCP.
+- `show ip dhcp database` — Confirms the DHCP lease database is active and recording lease information.
+- `debug ip dhcp server events` — Enables live DHCP server event logging to observe server-side activity in real time.
+- `debug ip dhcp server packets` — Captures DHCP packet exchange between the server and client to diagnose request/response failures.
+- `undebug all` — Stops all active debug output after troubleshooting is complete.
+
+#### 2) DHCP Relay Router (Router A)
+- `show running-config | section ip helper-address` — Confirms the router is configured to forward DHCP requests to the correct server.
+- `show ip interface brief` — Verifies the interfaces involved in DHCP relay are administratively up and operational.
+- `show ip route` — Checks the router has a valid route to the DHCP server subnet.
+- `show ip helper-address` — Displays the configured helper address(es), confirming the forwarding destination.
+
+#### 3) Where these are typically used
+- DHCP server commands are usually entered on the router that is actually running DHCP, such as Router B.
+- DHCP relay commands are usually entered on the router forwarding the client requests, such as Router A.
+- The debug commands are used on the DHCP server router when you need to observe DHCP traffic live during a failure.
+
 ### DHCP Tests
 - VLAN 2 client receives address from DHCP Server.
 - VLAN 3 client receives address from DHCP Server.
